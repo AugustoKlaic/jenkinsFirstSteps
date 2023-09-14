@@ -8,5 +8,11 @@ pipeline {
                 bat 'gradle run'
             }
         }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                bat 'gradle test'
+            }
+        }
     }
 }
