@@ -19,7 +19,7 @@ pipeline {
                 echo 'deploying'
                 deploy adapters: [tomcat9(credentialsId: 'tomcat_credential',
                                             path: '',
-                                            url: 'localhost/8080')],
+                                            url: 'localhost:8080')],
                                             contextPath: '/hello',
                                             onFailure: false,
                                             war: 'build/libs/hello.war'
