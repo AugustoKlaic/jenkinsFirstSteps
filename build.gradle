@@ -1,17 +1,12 @@
 plugins {
-    id 'application'
+    id 'java'
+    id 'war'
 }
 
 group 'org.example'
-version '1.0-SNAPSHOT'
 
-apply plugin : "java"
-ext {
-    javaMainClass = "org.example.Main"
-}
-
-application {
-    mainClassName = javaMainClass
+war {
+    baseName = 'hello'
 }
 
 repositories {
@@ -21,6 +16,7 @@ repositories {
 dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    implementation group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.7.16'
 }
 
 test {
