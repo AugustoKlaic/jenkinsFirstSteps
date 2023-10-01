@@ -17,7 +17,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'deploying'
-                cp 'build/libs/hello.war' 'C:\\Users\\gutos\\Documents\\Dev-Stuff\\tomcat\\apache-tomcat-10.1.13\\webapps'
+                bat 'cp \'build/libs/hello.war\' \'C:\\Users\\gutos\\Documents\\Dev-Stuff\\tomcat\\apache-tomcat-10.1.13\\webapps\''
             }
         }
     }
