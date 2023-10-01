@@ -5,13 +5,19 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building..'
-                bat 'gradle run'
+                bat 'gradle war'
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing..'
                 bat 'gradle test'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'deploying'
+                cp 'build/libs/hello.war' 'C:\\Users\\gutos\\Documents\\Dev-Stuff\\tomcat\\apache-tomcat-10.1.13\\webapps'
             }
         }
     }
