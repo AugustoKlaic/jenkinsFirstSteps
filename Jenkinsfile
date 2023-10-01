@@ -17,7 +17,12 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'deploying'
-                bat 'cp \'build/libs/hello.war\' \'C:\\Users\\gutos\\Documents\\Dev-Stuff\\tomcat\\apache-tomcat-10.1.13\\webapps\''
+                deploy adapters: [tomcat9(credentialsId: 'tomcat_credential',
+                                            path: '',
+                                            url: 'localhost/8080')],
+                                            contextPath: '/hello',
+                                            onFailure: false,
+                                            war: 'build/libs/hello.war'
             }
         }
     }
